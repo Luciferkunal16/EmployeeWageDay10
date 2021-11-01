@@ -9,6 +9,7 @@ public static  int EMP_RATE_PER_HOUR;
 public static  int NUM_OF_WORKING_DAYS;
 public static  int MAX_HRS;
 public   String companyName ;
+public int totalEmpWage;
 
 
  public Oops_Employee_Wage(String company,int empRatePerHour,int numofWorkingDays,int maxHrs) {
@@ -22,7 +23,6 @@ public   String companyName ;
 	int empHrs=0;
 	int totalEmpHrs=0;
 	int totalWorkingDays=0;
-	int totalEmpWage;
 	while (totalEmpHrs <=MAX_HRS && totalWorkingDays <NUM_OF_WORKING_DAYS) {
 		totalWorkingDays++;
 		int attendence=(int)((Math.random()*10)%3);
@@ -44,24 +44,25 @@ public   String companyName ;
 	
 		}
 		totalEmpWage=totalEmpHrs*EMP_RATE_PER_HOUR;
-		System.out.println("total Emp Wage For company : "+companyName+" is "+totalEmpWage);
+		
 	
 	
 	
 }
+ public String toString() {
+	 return "Total Emp Wage for Company "+companyName+" is "+totalEmpWage;
+ }
 public static void main(String[] args) {
-	Scanner inp=new Scanner(System.in);
-	System.out.println("Enter The Company Name");
-	String companyName=inp.next();
-	System.out.println("Enter the Employe Rate :-");
-	int empRate=inp.nextInt();
-	System.out.println("Enter Number of Working Days");
-	int numOfWorkingDays=inp.nextInt();
-	System.out.println("Enter Maximum Hours for Company");
-	int maxHrs=inp.nextInt();
-	Oops_Employee_Wage obj=new Oops_Employee_Wage(companyName, empRate, numOfWorkingDays, maxHrs);
 	
-	obj.computeWage();
+	Oops_Employee_Wage reliance=new Oops_Employee_Wage("Reliance", 20, 30, 10);
+	Oops_Employee_Wage Airtel=new Oops_Employee_Wage("Airtel", 12, 2, 8);
+	reliance.computeWage();
+	System.out.println(reliance.toString());
+	Airtel.computeWage();
+	System.out.println(Airtel);
+	
+	
+	
 	
 }
 }
